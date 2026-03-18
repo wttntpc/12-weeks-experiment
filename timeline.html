@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12 週運動介入實驗時程規劃</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap');
+        
+        body { 
+            font-family: 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif; 
+            background-color: #f8fafc; 
+        }
+        
+        /* 時間軸中線設計 */
+        .timeline-line {
+            position: absolute;
+            left: 28px;
+            top: 20px;
+            bottom: 20px;
+            width: 4px;
+            background: linear-gradient(to bottom, #3b82f6, #10b981, #6366f1);
+            border-radius: 4px;
+            z-index: 0;
+        }
+
+        @media (min-width: 768px) {
+            .timeline-line { 
+                left: 50%; 
+                transform: translateX(-50%); 
+            }
+            .timeline-item:nth-child(odd) .timeline-content { 
+                margin-left: auto; 
+                padding-left: 2.5rem; 
+            }
+            .timeline-item:nth-child(even) .timeline-content { 
+                margin-right: auto; 
+                text-align: right; 
+                padding-right: 2.5rem; 
+            }
+            /* 讓偶數列的列表項目靠右對齊 */
+            .timeline-item:nth-child(even) .timeline-content ul { 
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+            }
+            .timeline-item:nth-child(even) .timeline-content li { 
+                flex-direction: row-reverse; 
+            }
+            .timeline-item:nth-child(even) .timeline-content li i { 
+                margin-right: 0; 
+                margin-left: 0.75rem; 
+            }
+        }
+
+        .icon-shadow { 
+            box-shadow: 0 0 0 6px #f8fafc, 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); 
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        /* 流程步驟箭頭 */
+        .step-arrow::after {
+            content: '\f105';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            right: -24px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #cbd5e1;
+            font-size: 1.5rem;
+            display: none;
+        }
+        @media (min-width: 1024px) {
+            .step-arrow:not(:nth-child(3n))::after {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body class="text-slate-800 antialiased p-4 md:p-8 selection:bg-blue-200 selection:text-blue-900">
+
+    <div class="max-w-5xl mx-auto">
+        <!-- Header -->
+        <div class="text-center mb-16 pt-8">
+            <span class="bg-blue-100 text-blue-700 font-bold px-4 py-1.5 rounded-full text-sm tracking-widest uppercase mb-4 inline-block">
+                Exercise & Mental Health
+            </span>
+            <h1 class="text-3xl md:text-5xl font-black text-slate-900 mb-4 tracking-tight">
+                <i class="fa-solid fa-person-running text-blue-600 mr-3"></i>認知所 12 週有氧運動實驗
+            </h1>
+            <p class="text-slate-500 text-lg max-w-2xl mx-auto">
+                清晰掌握每週任務、檢測項目與注意事項，確保實驗順利進行與受試權益！
+            </p>
+        </div>
+
+        <!-- Timeline Section (週次總覽) -->
+        <div class="relative flex flex-col mb-20">
+            <!-- 貫穿全場的中線 -->
+            <div class="timeline-line hidden md:block"></div>
+            <!-- 手機版的中線 -->
+            <div class="absolute left-[28px] top-4 bottom-4 w-1 bg-gradient-to-b from-blue-500 via-emerald-500 to-indigo-500 rounded-full md:hidden z-0"></div>
+
+            <!-- W0 前測 -->
+            <div class="relative z-10 flex items-center md:justify-center mb-16 timeline-item group">
+                <div class="absolute left-0 md:left-1/2 md:-translate-x-1/2 w-16 h-16 rounded-full bg-blue-600 text-white flex items-center justify-center icon-shadow z-20 transition-transform group-hover:scale-110">
+                    <span class="text-xl font-bold">W0</span>
+                </div>
+                <div class="ml-20 md:ml-0 w-[calc(100%-5rem)] md:w-5/12 timeline-content">
+                    <div class="bg-white rounded-2xl shadow-sm border border-slate-100 p-6 md:p-8 card-hover relative overflow-hidden">
+                        <div class="absolute top-0 left-0 w-full h-1.5 bg-blue-600"></div>
+                        <h3 class="text-2xl font-bold text-slate-900 mb-2">初始前測 (Baseline)</h3>
+                        <p class="text-sm font-medium text-amber-600 bg-amber-50 inline-block px-3 py-1 rounded-md mb-5">
+                            <i class="fa-solid fa-triangle-exclamation mr-1.5"></i>前一晚請勿熬夜，檢測前避免激烈運動
+                        </p>
+                        <p class="text-slate-600 text-sm mb-4 leading-relaxed">
+                            進行約 <strong>2.5~3 小時</strong> 的完整生理與認知功能檢測，詳細當日檢測關卡請見下方「前、後測執行流程」。
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- W1-W11 常規任務 -->
+            <div class="relative z-10 flex items-center md:justify-center mb-16 timeline-item group">
+                <div class="absolute left-0 md:left-1/2 md:-translate-x-1/2 w-16 h-16 rounded-full bg-emerald-500 text-white flex items-center justify-center icon-shadow z-20 transition-transform group-hover:scale-110">
+                    <span class="text-sm font-bold">W1-W12</span>
+                </div>
+                <div class="ml-20 md:ml-0 w-[calc(100%-5rem)] md:w-5/12 timeline-content">
+                    <div class="bg-white rounded-2xl shadow-sm border border-slate-100 p-6 md:p-8 card-hover relative overflow-hidden">
+                        <div class="absolute top-0 left-0 w-full h-1.5 bg-emerald-500"></div>
+                        <h3 class="text-2xl font-bold text-slate-900 mb-2">12週有氧運動介入</h3>
+                        
+                        <!-- 核心運動任務 -->
+                        <div class="bg-emerald-50 p-4 rounded-xl border border-emerald-100 mb-5">
+                            <p class="font-bold text-emerald-800 mb-1.5"><i class="fa-solid fa-fire mr-2"></i>每週 3 次有氧運動</p>
+                            <p class="text-sm text-slate-700 leading-relaxed">
+                                每次 30 -35 分鐘（不含熱身與收操），強度須達個人化的<strong>中等強度儲備心率</strong>。全程需佩戴 Garmin 手錶並搭配平板，運動後交由研究人員確認。
+                            </p>
+                        </div>
+                        
+                        <!-- 特定週次任務 -->
+                        <h4 class="font-bold text-slate-800 mb-3 flex items-center"><i class="fa-solid fa-thumbtack text-slate-400 mr-2"></i>特定週次附加檢測</h4>
+                        <div class="space-y-3">
+                            <div class="flex flex-col sm:flex-row items-start sm:items-center bg-slate-50 border border-slate-100 p-3.5 rounded-xl">
+                                <span class="bg-blue-100 text-blue-700 font-bold px-2.5 py-1 rounded text-sm min-w-max mb-2 sm:mb-0 sm:mr-4">W2, W4, W8</span>
+                                <div class="text-left">
+                                    <p class="font-bold text-sm text-slate-800">填寫問卷量表</p>
+                                    <p class="text-xs text-slate-500 mt-0.5">於該週「第三次」運動後完成填寫。</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex flex-col sm:flex-row items-start sm:items-center bg-slate-50 border border-slate-100 p-3.5 rounded-xl">
+                                <span class="bg-purple-100 text-purple-700 font-bold px-2.5 py-1 rounded text-sm min-w-max mb-2 sm:mb-0 sm:mr-4">W7 專屬</span>
+                                <div class="text-left">
+                                    <p class="font-bold text-sm text-slate-800">腦電波檢測</p>
+                                    <p class="text-xs text-slate-500 mt-0.5">當週第一次運動前，另安排時間受測。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- W12 後測 -->
+            <div class="relative z-10 flex items-center md:justify-center timeline-item group">
+                <div class="absolute left-0 md:left-1/2 md:-translate-x-1/2 w-16 h-16 rounded-full bg-indigo-600 text-white flex items-center justify-center icon-shadow z-20 transition-transform group-hover:scale-110">
+                    <span class="text-xl font-bold">W13</span>
+                </div>
+                <div class="ml-20 md:ml-0 w-[calc(100%-5rem)] md:w-5/12 timeline-content">
+                    <div class="bg-white rounded-2xl shadow-sm border border-slate-100 p-6 md:p-8 card-hover relative overflow-hidden">
+                        <div class="absolute top-0 left-0 w-full h-1.5 bg-indigo-600"></div>
+                        <h3 class="text-2xl font-bold text-slate-900 mb-2">實驗後測 (Post-test)</h3>
+                        <p class="text-sm font-medium text-indigo-600 bg-indigo-50 inline-block px-3 py-1 rounded-md mb-5">
+                            <i class="fa-solid fa-flag-checkered mr-1.5"></i>恭喜堅持到底！進行最終數據驗收
+                        </p>
+                        <p class="text-slate-600 text-sm mb-4 leading-relaxed">
+                            與 W0 前測流程相同。完成所有檢測後，將給予 <strong>受試者費</strong>！
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pre/Post Test Daily Flow Section -->
+        <div class="border-t border-slate-200 pt-16 mt-8 mb-20">
+            <div class="text-center mb-12">
+                <span class="bg-purple-100 text-purple-700 font-bold px-4 py-1.5 rounded-full text-sm tracking-widest uppercase mb-4 inline-block">
+                    Test Day Procedure
+                </span>
+                <h2 class="text-3xl font-black text-slate-900 mb-4">
+                    <i class="fa-solid fa-clipboard-list text-purple-500 mr-3"></i>前、後測當日執行流程
+                </h2>
+                <p class="text-slate-500 text-lg max-w-2xl mx-auto bg-slate-100 py-3 px-6 rounded-lg inline-block">
+                    測驗總時長約 <strong>2.5 - 3 小時</strong>，各項目緊湊進行，請預留充足時間並依序完成以下關卡：
+                </p>
+            </div>
+
+            <!-- Flowchart Grid (精準對齊 7 大步驟) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 relative">
+                
+                <!-- Step 1 -->
+                <div class="relative bg-white rounded-2xl shadow-sm border border-slate-100 p-6 card-hover step-arrow flex flex-col h-full">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-xl font-bold">1</div>
+                        <span class="bg-slate-100 text-slate-600 text-xs font-bold px-2 py-1 rounded-md"><i class="fa-regular fa-clock mr-1"></i>10 分鐘</span>
+                    </div>
+                    <h3 class="font-bold text-lg text-slate-900 mb-2">說明與同意書</h3>
+                    <p class="text-sm text-slate-600 flex-grow">
+                        研究人員說明實驗內容與程序，並請受試者簽署同意書一式兩份。
+                        <br><span class="text-red-500 text-xs mt-1 block">※ 僅於前測時簽署一次，請注意不得寫錯字。</span>
+                    </p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="relative bg-white rounded-2xl shadow-sm border border-slate-100 p-6 card-hover step-arrow flex flex-col h-full">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 rounded-full bg-cyan-100 text-cyan-600 flex items-center justify-center text-xl font-bold">2</div>
+                        <span class="bg-slate-100 text-slate-600 text-xs font-bold px-2 py-1 rounded-md"><i class="fa-regular fa-clock mr-1"></i>5~10 分鐘</span>
+                    </div>
+                    <h3 class="font-bold text-lg text-slate-900 mb-2">洗頭 (清潔頭皮)</h3>
+                    <p class="text-sm text-slate-600 flex-grow">
+                        請受試者清潔頭皮，洗去多餘油脂與角質，以確保後續腦波量測時訊號的準確與穩定。
+                    </p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="relative bg-white rounded-2xl shadow-sm border border-slate-100 p-6 card-hover step-arrow flex flex-col h-full">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-xl font-bold">3</div>
+                        <span class="bg-slate-100 text-slate-600 text-xs font-bold px-2 py-1 rounded-md"><i class="fa-regular fa-clock mr-1"></i>5~10 分鐘</span>
+                    </div>
+                    <h3 class="font-bold text-lg text-slate-900 mb-2">休息狀態腦波檢測</h3>
+                    <p class="text-sm text-slate-600 flex-grow">
+                        進行休息狀態的認知腦電波 (EEG) 量測，請保持放鬆以獲取穩定、準確的腦波訊號。
+                    </p>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="relative bg-white rounded-2xl shadow-sm border border-slate-100 p-6 card-hover step-arrow flex flex-col h-full">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 rounded-full bg-teal-100 text-teal-600 flex items-center justify-center text-xl font-bold">4</div>
+                        <span class="bg-slate-100 text-slate-600 text-xs font-bold px-2 py-1 rounded-md"><i class="fa-regular fa-clock mr-1"></i>5~10 分鐘</span>
+                    </div>
+                    <h3 class="font-bold text-lg text-slate-900 mb-2">洗頭 (清洗導電膏)</h3>
+                    <p class="text-sm text-slate-600 flex-grow">
+                        腦波檢測結束後，再次進行洗頭，以清洗頭部殘留的腦波儀導電膏，恢復清爽狀態。
+                    </p>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="relative bg-white rounded-2xl shadow-sm border border-slate-100 p-6 card-hover step-arrow flex flex-col h-full">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center text-xl font-bold">5</div>
+                        <span class="bg-slate-100 text-slate-600 text-xs font-bold px-2 py-1 rounded-md"><i class="fa-regular fa-clock mr-1"></i>約 40 分鐘</span>
+                    </div>
+                    <h3 class="font-bold text-lg text-slate-900 mb-2">認知作業</h3>
+                    <p class="text-sm text-slate-600 flex-grow">
+                        使用 <strong>CIPH APP</strong> 依序進行五項認知作業檢測，評估各項認知與執行功能表現。
+                    </p>
+                </div>
+
+                <!-- Step 6 -->
+                <div class="relative bg-white rounded-2xl shadow-sm border border-slate-100 p-6 card-hover step-arrow flex flex-col h-full">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center text-xl font-bold">6</div>
+                        <span class="bg-slate-100 text-slate-600 text-xs font-bold px-2 py-1 rounded-md"><i class="fa-regular fa-clock mr-1"></i>約 30 分鐘</span>
+                    </div>
+                    <h3 class="font-bold text-lg text-slate-900 mb-2">身體組成與體適能</h3>
+                    <p class="text-sm text-slate-600 flex-grow">
+                        測量身體組成（了解肌肉與脂肪分佈），隨後進行三種基礎體適能檢測。
+                    </p>
+                </div>
+
+                <!-- Step 7 -->
+                <div class="relative bg-white rounded-2xl shadow-sm border border-slate-100 p-6 card-hover flex flex-col h-full">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center text-xl font-bold">7</div>
+                        <span class="bg-slate-100 text-slate-600 text-xs font-bold px-2 py-1 rounded-md"><i class="fa-regular fa-clock mr-1"></i>約 45 分鐘</span>
+                    </div>
+                    <h3 class="font-bold text-lg text-slate-900 mb-2">心肺適能檢測</h3>
+                    <p class="text-sm text-slate-600 flex-grow">
+                        進行漸進式的跑步機運動心肺適能檢測 (VO2peak)。<br>
+                        <span class="text-rose-700 font-bold text-sm mt-3 block bg-rose-100 px-3 py-2 rounded-lg border border-rose-200 shadow-sm">
+                            <i class="fa-solid fa-triangle-exclamation mr-1"></i> 需全程配戴 Polar 心率帶與氣體代謝面罩！
+                        </span>
+                    </p>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Rules & Guidelines Grid -->
+        <div class="border-t border-slate-200 pt-16">
+            <h2 class="text-3xl font-black text-center text-slate-900 mb-10">
+                <i class="fa-solid fa-triangle-exclamation text-slate-400 mr-3"></i>實驗重要須知
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+                
+                <!-- Location & Cost Card -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-100 p-6 lg:p-8 card-hover">
+                    <div class="w-14 h-14 rounded-2xl bg-sky-100 text-sky-600 flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-location-dot text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold text-xl text-slate-900 mb-3">實驗地點與運動方式</h3>
+                    <p class="text-slate-600 leading-relaxed text-sm">
+                        請至 <strong>中央大學國民運動中心 2F</strong> (認知智慧與精準健康照護研究中心檢測室) 報到。<br><br>
+                        運動地點與方式，會再當面說明。
+                    </p>
+                </div>
+
+                <!-- Attendance Card -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-100 p-6 lg:p-8 card-hover">
+                    <div class="w-14 h-14 rounded-2xl bg-amber-100 text-amber-500 flex items-center justify-center mb-6">
+                        <i class="fa-regular fa-calendar-check text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold text-xl text-slate-900 mb-3">請假方式</h3>
+                    <p class="text-slate-600 leading-relaxed text-sm">
+                        為確保數據準確，測驗或運動前一晚請保持充足睡眠。<br><br>
+                        若預定時段無法出席，請務必於 <strong>前一天</strong> 來信告知，且必須於 <strong>當週內</strong> 另找時段完成運動，以維持每週三次的完整性。
+                    </p>
+                </div>
+
+                <!-- Reward Card -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-100 p-6 lg:p-8 card-hover relative overflow-hidden">
+                    <div class="w-14 h-14 rounded-2xl bg-rose-100 text-rose-500 flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-hand-holding-dollar text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold text-xl text-slate-900 mb-3">受試費用發放</h3>
+                    <p class="text-slate-600 leading-relaxed text-sm">
+                        全程參與完 12 週者，總計可獲得 <strong>3,250 元</strong>。<br><br>
+                        <span class="bg-rose-50 text-rose-700 py-1.5 px-2 rounded inline-block w-full">
+                            <i class="fa-solid fa-circle-exclamation mr-1"></i> <strong>未達標扣款規則：</strong><br>
+                            若未全程參與完者，將依參與實驗之比例 <strong>打六折</strong> 計算費用。
+                        </span>
+                    </p>
+                </div>
+
+            </div>
+        </div>
+        
+        <!-- Footer Info -->
+        <div class="text-center mt-16 text-sm text-slate-400 pb-10">
+            <p>如對實驗流程有任何疑問，請隨時聯繫研究團隊。</p>
+         </div>
+           <h3 class="font-bold text-x text-slate-900 mb-3"> 認知所 吳亭葶博士生 </h3>
+                     <h3 class="font-bold text-x text-slate-900 mb-3"> email: wtt.ntpc@gmail.com</h3>
+        </div>
+    </div>
+
+</body>
+</html>
